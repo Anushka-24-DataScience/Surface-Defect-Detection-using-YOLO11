@@ -68,3 +68,16 @@ DATA_VALIDATION_SAMPLE_DIR = "samples"
 DATA_VALIDATION_OUTLIER_FILE = "outliers.txt"
 YOLO_DATASET_PATH="C:\\Users\\admin\\Desktop\\Surface-Defect-Detection-using-YOLO11\\artifacts\\05_01_2026_22_50_34\\data_conversion\\yolo_dataset"
 DATA_VALIDATION_DIR = "C:\\Users\\admin\\Desktop\\Surface-Defect-Detection-using-YOLO11\\artifacts\\05_01_2026_22_50_34\\data_validation"
+
+
+
+# ── MODEL TRAINER ──────────────────────────────────────────────────────────────
+MODEL_TRAINER_DIR_NAME          : str   = "model_trainer"
+MODEL_TRAINER_PRETRAINED_WEIGHTS: list  = ["yolo11n.pt", "yolo11s.pt", "yolo11m.pt"]
+MODEL_TRAINER_NO_EPOCHS         : int   = 100
+MODEL_TRAINER_BATCH_SIZE        : int   = 16
+MODEL_TRAINER_IMG_SIZE          : int   = 640
+MODEL_TRAINER_PATIENCE          : int   = 20
+MODEL_TRAINER_WORKERS           : int   = 4
+MODEL_TRAINER_RESULTS_CSV       : str   = "model_comparison.csv"
+MODEL_TRAINER_BEST_MODEL_NAME   : str   = "best.pt"

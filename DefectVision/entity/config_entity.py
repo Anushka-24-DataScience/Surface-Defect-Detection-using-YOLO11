@@ -96,3 +96,39 @@ class DataValidationConfig:
         DATA_VALIDATION_DIR_NAME,
         "report.txt",
     )
+
+
+
+# ── TRAINING  CONFIG───────────────────────────────────────────────────────────
+ 
+@dataclass
+class ModelTrainerConfig:
+    """
+    Config for Stage 4 — Model Training.
+ 
+    Reads  : artifacts/<ts>/data_conversion/yolo_dataset/data.yaml
+    Writes : artifacts/<ts>/model_trainer/
+                best.pt              ← best model across all 3 variants
+                model_comparison.csv ← metrics table for all 3
+                yolo11n/best.pt      ← individual weights
+                yolo11n/last.pt      ← resume checkpoint
+                yolo11s/best.pt
+                yolo11s/last.pt
+                yolo11m/best.pt
+                yolo11m/last.pt
+    """
+    model_trainer_dir: str = os.path.join(
+        training_pipeline_config.artifacts_dir,
+        MODEL_TRAINER_DIR_NAME,
+    )
+ 
+    pretrained_weights: list = field(
+        default_factory=lambda: MODEL_TRAINER_PRETRAINED_WEIGHTS
+    )
+ 
+    no_epochs   : int = MODEL_TRAINER_NO_EPOCHS
+    batch_size  : int = MODEL_TRAINER_BATCH_SIZE
+    img_size    : int = MODEL_TRAINER_IMG_SIZE
+    patience    : int = MODEL_TRAINER_PATIENCE
+    workers     : int = MODEL_TRAINER_WORKERS
+    results_csv : str = MODEL_TRAINER_RESULTS_CSV

@@ -111,3 +111,21 @@ class DataValidationArtifact:
     validation_status   : bool
     report_file_path    : str
     data_validation_dir : str
+
+
+
+
+# ── artifacts_entity.py ────────────────────────────────────────────────────────
+@dataclass
+class ModelTrainerArtifact:
+    """
+    Returned by ModelTrainer.initiate_model_trainer().
+    Contains path and metrics of the best model across all variants.
+    """
+    trained_model_path  : str    # path to best.pt  (winner)
+    best_model_name     : str    # e.g. "yolo11s"
+    model_comparison_csv: str    # path to model_comparison.csv
+    map50               : float  # mAP@0.5 of best model
+    map50_95            : float  # mAP@0.5:0.95 of best model
+    precision           : float
+    recall              : float
